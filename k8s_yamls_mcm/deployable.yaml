@@ -1,0 +1,29 @@
+apiVersion: app.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  annotations:
+    app.ibm.com/is-local-deployable: "false"
+  name: motd-deploy
+spec:
+  template:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      name: motd-deployment
+    spec:
+      replicas: 1
+      template:
+        metadata:
+          name: motd
+          labels:
+            app: motd
+        spec:
+          containers:
+            - name: motd
+              image: __IMAGE__
+              imagePullPolicy: Always
+              livenessProbe:
+                tcpSocket:
+                  port: 8000
+                initialDelaySeconds: 20
+                periodSeconds: 60
