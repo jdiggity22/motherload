@@ -12,6 +12,9 @@ spec:
       name: motd-deployment
     spec:
       replicas: 1
+        selector:
+          matchLabels:
+            app: motd
       template:
         metadata:
           name: motd
