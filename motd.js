@@ -1,22 +1,32 @@
-// Load the http module to create an http server.
-var http = require('http');
-var cowsay = require('cowsay');
-var motd = "Hello cowpokes!";
+'use strict';
 
-// Configure our HTTP server to respond with our MOTD to all requests.
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
+const express = require('express');
+const cowsay = require("cowsay");
 
+// Constants
+const PORT = 8080;
+
+// App
+const app = express();
+
+app.get("/", function (req, res) {
+  res.redirect("/Moo!");
+});
+
+app.get("/:text", function (req, res) {
+  let text;
+
+  try {
+    text = req.params.text;
+  } catch (e) {
+    text = "Hi Awesome People!";
+  }
   const responseText = `
-    <pre>${cowsay.say({ motd })}</pre>
+    <pre>${cowsay.say({ text })}</pre>
     <br/><br/>
   `;
 
-  response.end(responseText);
+  res.send(responseText);
 });
 
-// Listen on port 8000, IP defaults to 127.0.0.1
-server.listen(8000);
-
-// Put a friendly message on the terminal
-console.log("Server running at http://127.0.0.1:8000/");
+app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
