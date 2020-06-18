@@ -11,7 +11,7 @@ const PORT = 8080;
 const app = express();
 
 app.get("/", function (req, res) {
-  res.redirect("/Moo!");
+  res.redirect("/{ motd }");
 });
 
 app.get("/:text", function (req, res) {
@@ -23,7 +23,7 @@ app.get("/:text", function (req, res) {
     text = "Hi Awesome People!";
   }
   const responseText = `
-    <pre>${cowsay.say({ motd })}</pre>
+    <pre>${cowsay.say({ text })}</pre>
     <br/><br/>
   `;
 
