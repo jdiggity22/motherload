@@ -1,0 +1,13 @@
+{
+  "name": "motd",
+  "version": "1.0.0",
+  "description": "Message of the day using Cowsay",
+  "author": "John Webb <john.webb@us.ibm.com>",
+  "main": "motd.js",
+  "scripts": {
+    "start": "node motd.js"
+  },
+  "dependencies": {
+    "cowsay": "^1.1.9",
+  }
+}
