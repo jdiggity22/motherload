@@ -1,10 +1,18 @@
 // Load the http module to create an http server.
 var http = require('http');
+var cowsay = require('cowsay');
+var motd = "Hello cowpokes!";
 
-// Configure our HTTP server to respond with Hello World to all requests.
+// Configure our HTTP server to respond with our MOTD to all requests.
 var server = http.createServer(function (request, response) {
   response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello World!\n");
+
+  const responseText = `
+    <pre>${cowsay.say({ motd })}</pre>
+    <br/><br/>
+  `;
+
+  response.end(responseText);
 });
 
 // Listen on port 8000, IP defaults to 127.0.0.1
