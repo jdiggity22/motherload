@@ -7,13 +7,10 @@ metadata:
 spec:
   template:
     apiVersion: v1
-    kind: Service
+    kind: Route
     metadata:
-      name: motd-service
+      name: motd
     spec:
-      selector:
-        app: motd
-      ports:
-        - protocol: TCP
-          port: 80
-          targetPort: 8080
+      to:
+        kind: Service
+        name: motd-service
