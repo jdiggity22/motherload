@@ -3,7 +3,7 @@ kind: Deployable
 metadata:
   annotations:
     app.ibm.com/is-local-deployable: "false"
-  name: motd-deploy
+  name: motd-service
 spec:
   template:
     apiVersion: v1
