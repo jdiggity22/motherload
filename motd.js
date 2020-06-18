@@ -2,6 +2,7 @@
 
 const express = require('express');
 const cowsay = require("cowsay");
+var motd = "Hello cowpokes!";
 
 // Constants
 const PORT = 8080;
@@ -22,7 +23,7 @@ app.get("/:text", function (req, res) {
     text = "Hi Awesome People!";
   }
   const responseText = `
-    <pre>${cowsay.say({ text })}</pre>
+    <pre>${cowsay.say({ motd })}</pre>
     <br/><br/>
   `;
 
