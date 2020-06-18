@@ -2,7 +2,7 @@
 
 const express = require('express');
 const cowsay = require("cowsay");
-var motd = "Hello cowpokes!";
+motd = "Hello cowpokes!";
 
 // Constants
 const PORT = 8080;
