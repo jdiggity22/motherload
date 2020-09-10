@@ -6,7 +6,7 @@ metadata:
   name: motd-deploy
 spec:
   template:
-    apiVersion: extensions/v1beta1
+    apiVersion: apps/v1
     kind: Deployment
     metadata:
       name: motd-deployment
@@ -27,6 +27,6 @@ spec:
               imagePullPolicy: Always
               livenessProbe:
                 tcpSocket:
-                  port: 8000
+                  port: 8080
                 initialDelaySeconds: 20
                 periodSeconds: 60

@@ -9,7 +9,7 @@ spec:
     apiVersion: v1
     kind: Route
     metadata:
-      name: motd
+      name: motd-route
     spec:
       to:
         kind: Service
